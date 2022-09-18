@@ -5,7 +5,7 @@ node {
     checkout scm
   }
   stage('Testeo') {
-     myGradleContainer.inside("-v ${env.HOME}/.gradle:/home/gradle/.gradle") {
+     myGradleContainer.inside(image:'gradle:jdk8-alpine') {
        sh 'cd complete && gradle test'
      }
   }
